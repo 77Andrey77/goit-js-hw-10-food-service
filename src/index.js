@@ -1,5 +1,9 @@
-import menuCardTemplate from './templates/menu-item.hbs';
-import cardsMenu from './menu.json';
+import menuElements from './menu.json';
+import menuTemplate from './templates/menu-item.hbs';
 
 
-console.log(menuCardsTemplate);
+
+const galleryMenu = document.querySelector('.js-menu');
+const markup = menuTemplate(menuElements);
+
+galleryMenu.insertAdjacentHTML('beforeend', markup);
