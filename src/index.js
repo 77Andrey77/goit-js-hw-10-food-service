@@ -22,21 +22,23 @@ const body = document.querySelector('body');
 const switchTheme = document.querySelector('.theme-switch__toggle');
 
 switchTheme.addEventListener('change', clickSwitch); ////меняет тему
-switchTheme.addEventListener('change', setLocalStorage) ////// сохраняет значение темы
+
 document.addEventListener('DOMContentLoaded', getThemeFromLocalStorage);
 
 ////////назначение темной темы
 
 function setDartTheme() {
     body.classList.add(Theme.DARK);
-    body.classList.remove(Theme.LIGHT)
+    body.classList.remove(Theme.LIGHT);
+    localStorage.setItem("theme", Theme.DARK)
 }
 
 //////// назначение светлой темы
 
 function setLightTheme() {
     body.classList.add(Theme.LIGHT);
-    body.classList.remove(Theme.DARK)
+    body.classList.remove(Theme.DARK);
+    localStorage.setItem("theme", Theme.LIGHT)
 }
 
 ///////// нажатие на переключатель
@@ -50,15 +52,6 @@ function clickSwitch(even) {
          
     }
 }
-
-//////////// сохраняет в локал стор данные про тему
-
-function setLocalStorage(even) {
-    if (switchTheme.checked) {
-        localStorage.setItem("theme", Theme.DARK)
-    } else {
-        localStorage.removeItem("theme");
-    localStorage.setItem("theme", Theme.LIGHT)} }
 
 
 ////////////
